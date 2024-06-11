@@ -1,0 +1,36 @@
+.main-nav {
+  z-index: 1;
+  padding: 5px;
+  top: 0px;
+  position: fixed;
+  width: 100%;
+  overflow: hidden;
+  background-color: black;
+  color: white;
+  align-items: center;
+}
+
+.nav-logo {
+  float: left;
+  width: 50px;
+  height: 50px;
+}
+
+.nav-list {
+  margin: 5px;
+  display: flex;
+  list-style: none;
+}
+
+.nav-list > li {
+  padding: 10px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.nav-list > li:hover {
+  transform: scale(1.1);
+}
+
+.push-right {
+  margin-left: auto;
+}

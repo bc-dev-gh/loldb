@@ -1,0 +1,13 @@
+footer {
+  height: 50px;
+  color: white;
+  background-color: black;
+  bottom: 0;
+  width: 100%;
+  position: fixed;
+}
+
+.footer-list {
+  display: flex;
+  list-style: none;
+}
