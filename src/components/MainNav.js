@@ -8,7 +8,6 @@ export default function MainNav() {
         <li><a href='/#'>Home</a></li>
         <li><a href='/#champions'>Champions</a></li>
         <li><a href='/#items'>Items</a></li>
-        <li><a href='/#summoner_spells'>Summoner Spells</a></li>
         <li className='push-right'>About</li>
         <li>Stuff</li>
       </ul>
