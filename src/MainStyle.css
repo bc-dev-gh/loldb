@@ -18,6 +18,24 @@ code {
     monospace;
 }
 
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: .75rem;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+}
+
+.filterlabel {
+  margin: 5px;
+  padding: 5px;
+  align-content: center;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+}
+
+
 .content {
   margin: 60px 5px 45px 5px;
 }
