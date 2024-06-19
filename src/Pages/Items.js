@@ -1,5 +1,6 @@
 import React from 'react';
 import ItemDB from '../datadragon/item.json'
+import ItemFilters from '../datadragon/myItemFilters.json'
 
 const itemSpriteBaseUrl = 'https://ddragon.leagueoflegends.com/cdn/14.11.1/img/item/';
 const itemData = ItemDB.data
@@ -12,24 +13,35 @@ export default function Items() {
         allTags[tag] = false
     }
   }
-  
+
+  const [searchString, setSearchString] = React.useState("")
   const [filterList, setFilterList] = React.useState(allTags)
   
   function handleFilterCBChanged(event) {
     setFilterList(prevFilterList => ({...prevFilterList, [event.target.id]: event.target.checked}))
   }
 
-  let noFiltersSelected = Object.keys(filterList).every(filter => !filterList[filter])
+  function handleSearchInput(event) {
+    setSearchString(event.target.value)
+  }
 
-  let jsx_filterCheckboxes = Object.keys(filterList).map( filter =>
-    <label className='filterlabel'> 
-      {filter}
-      <input className='filtercb' 
-        type='checkbox' 
-        checked={filterList[filter]} 
-        id={filter} 
-        onClick={handleFilterCBChanged}/>
-    </label>)
+  let noFiltersSelected = Object.keys(filterList).every(filter => !filterList[filter])
+  let jsx_filterCheckboxes = Object.entries(ItemFilters).map( ([category, filterList]) =>
+    <div className="filter-category">
+      <h2>{category}</h2>
+      {
+        filterList.map( filter =>
+          <label className='filterlabel'> 
+            {filter}
+            <input className='filtercb' 
+              type='checkbox' 
+              checked={filterList[filter]} 
+              id={filter} 
+              onClick={handleFilterCBChanged}/>
+          </label>)
+      }
+    </div>
+  )
 
   let jsx_itemCards = Object.keys(itemData).map(itemId => {
     let currentItem = itemData[itemId]
@@ -44,13 +56,22 @@ export default function Items() {
           }
         }
       }
-      return (noFiltersSelected || matchedTags === selectedFilters.length) && <ItemCard item={itemData[itemId]}/>
+      //conditional rendering: search string must either be empty, be a substring of the item name, or equal one of the item colloquial names
+      return (searchString === '' || currentItem.name.toLowerCase().includes(searchString.toLowerCase()) || currentItem.colloq.toLowerCase().split(';').includes(searchString.toLowerCase())) && 
+      //the item must also match all the selected tags
+      (noFiltersSelected || matchedTags === selectedFilters.length) && 
+      //if all are true, render the item card
+      <ItemCard item={itemData[itemId]}/>
     }
+    return false
   })
 
   return (
     <>
       <h1>Items: {ItemDB.version}</h1>
+      <label className='searchlabel'>
+        <h3>Item Name Search <input className='search' type='text' onInput={handleSearchInput}></input></h3> 
+      </label>
       <div className='filters' >
         {jsx_filterCheckboxes}
       </div>

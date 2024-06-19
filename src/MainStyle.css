@@ -18,18 +18,45 @@ code {
     monospace;
 }
 
-.filters {
+h1, h3 {
+  margin: 0px;
+}
+
+.searchlabel {
+  margin: 0px;
+  text-align: center;
+}
+
+.filter-category {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  margin: 5px 5px 0px 5px;
+  border-radius: 5px;
+  border-color: black;
+  background-color:cadetblue;
+  border-style: solid;
+}
+
+.filter-category > h2 {
+  text-align: center;
+  margin: 0px;
+  background-color: darkslategray;
+  color: tan;
+  overflow: hidden;
+}
+
+.filters {
+  display: grid;
   align-items: center;
   font-size: .75rem;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
 .filterlabel {
-  margin: 5px;
-  padding: 5px;
-  align-content: center;
+  display: block;
+  margin: 2px 5px 2px 5px;
+  padding: 2px;
+  text-align: center;
   border-radius: 5px;
   background-color: black;
   color: white;
