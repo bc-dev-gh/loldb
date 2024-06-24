@@ -1,4 +1,5 @@
 import React from 'react';
+import FilterCategory from '../components/FilterCategory'
 import Card from '../components/Card'
 import ItemDB from '../datadragon/item.json'
 import ItemFilters from '../datadragon/myItemFilters.json'
@@ -16,10 +17,10 @@ export default function Items() {
   }
 
   const [searchString, setSearchString] = React.useState("")
-  const [filterList, setFilterList] = React.useState(allTags)
-  
-  function handleFilterCBChanged(event) { setFilterList(prevFilterList => ({...prevFilterList, [event.target.id]: event.target.checked})) }
   function handleSearchInput(event) { setSearchString(event.target.value) }
+
+  const [filterList, setFilterList] = React.useState(allTags)
+  function handleFilterCBChanged(event) { setFilterList(prevFilterList => ({...prevFilterList, [event.target.id]: event.target.checked})) }
 
   let jsx_filterCheckboxes = manageFilters(handleFilterCBChanged)
   let jsx_itemCards = manageCards(filterList, searchString)
@@ -41,35 +42,22 @@ export default function Items() {
 } 
 
 function manageFilters (filterHandler) {
-  return Object.entries(ItemFilters).map( ([category, filterList]) =>
-    <div className="filter-category">
-      <h2>{category}</h2>
-      {
-        filterList.map( filter =>
-          <label className='filterlabel'> 
-            {filter}
-            <input className='filtercb' 
-              type='checkbox' 
-              checked={filterList[filter]} 
-              id={filter} 
-              onClick={filterHandler}/>
-          </label>)
-      }
-    </div>
+  return Object.entries(ItemFilters).map( ([category, filters]) =>
+    <FilterCategory title={category} filters={filters} filterHandler={filterHandler}/>
   )
 }
 
-function manageCards(filterList, searchString) {
-  let noFiltersSelected = Object.keys(filterList).every(filter => !filterList[filter])
+function manageCards(filters, searchString) {
+  let noFiltersSelected = Object.keys(filters).every(filter => !filters[filter])
+  let selectedFilters = Object.keys(filters).filter(filter => filters[filter])
   return Object.keys(itemData).map(itemId => {
     let currentItem = itemData[itemId]
     //only render if the item is purchasable on Summoner's Rift (map 11)
     if (currentItem.gold.purchasable && currentItem.maps['11']) {
-      let selectedFilters = Object.keys(filterList).filter(filter => filterList[filter])
       let matchedTags = 0
       if (!noFiltersSelected){
         for (let tag of currentItem.tags) {
-          if (filterList[tag]){
+          if (filters[tag]){
             matchedTags++
           }
         }

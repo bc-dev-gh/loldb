@@ -3,7 +3,6 @@ import './Card.css';
 
 
 export default function Card(props) {
-  //only render if the item is purchasable on summoners rift
   return ( 
     <div className='card'>
       <div className='card-header'>
