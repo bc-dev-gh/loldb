@@ -1,0 +1,42 @@
+.card {
+  line-height: 1rem;
+  display: block;
+  font-size: .9rem;
+  border-color: black;
+  background-color:cadetblue;
+  border-style: solid;
+  word-wrap:break-word;
+}
+
+.card:hover {
+  border-color: goldenrod;
+  transition: transform 0.25s;
+  transform: scale(1.1);
+  box-shadow: 0 0 20px goldenrod;
+}
+
+.card-header {
+  background-color: darkslategray;
+  color: tan;
+  overflow: hidden;
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.card-subtitle {
+  margin: 0px;
+}
+
+.card-description {
+  padding: 5px;
+}
+
+.card-icon {
+  margin: 5px;
+  width: 50px;
+  height: 50px;
+  float: left;
+}

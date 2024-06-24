@@ -18,7 +18,7 @@ code {
     monospace;
 }
 
-h1, h3 {
+h1, h2, h3, h4 {
   margin: 0px;
 }
 
@@ -83,52 +83,11 @@ h1, h3 {
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }
 
-.card {
-  display: block;
-  font-size: .9rem;
-  border-color: black;
-  background-color:cadetblue;
-  border-style: solid;
-  word-wrap:break-word;
-}
-
-.card:hover {
-  border-color: goldenrod;
-  transition: transform 0.25s;
-  transform: scale(1.1);
-  box-shadow: 0 0 20px goldenrod;
-}
-
-.card-header {
-  background-color: darkslategray;
-  color: tan;
-  overflow: hidden;
-}
-
-.card-description {
-  padding: 5px;
-}
-
-.card-icon {
-  margin: 5px;
-  width: 50px;
-  height: 50px;
-  float: left;
-}
-
 mainText {
   font-size: .7rem;
-  margin: 0;
-  padding: 0;
   color: white;
   text-shadow: 0 0 2px #000000,0 0 2px #000000,0 0 2px #000000,0 0 2px #000000;
 }
-
-.title {
-  font-size: 1.1rem;
-  font-weight: bold;
-}
-
 
 stats {
   text-shadow: none;
