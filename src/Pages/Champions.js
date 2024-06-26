@@ -40,7 +40,7 @@ export default function Champions() {
 
   function manageFilters (tagDict, filterHandler) {
     let tagList = Object.keys(tagDict)
-    return <FilterCategory title='Tags' filters={tagList} filterHandler={filterHandler}/>
+    return <FilterCategory title='Tags' horizontal={true} filters={tagList} filterHandler={filterHandler}/>
   }
 
   function manageCards (filters, searchString) {
@@ -62,10 +62,10 @@ export default function Champions() {
       (noFiltersSelected || matchedTags === selectedFilters.length)) {
         let jsx_cardheader = <>
           <h4 className='card-title'>{currentChamp.name}</h4>
-          {currentChamp.tags.map((tag) => (<p className='card-subtitle'>{tag}</p>)) }
+          {currentChamp.tags.map((tag) => (<p key={tag} className='card-subtitle'>{tag}</p>)) }
         </>
         let jsx_dangerouslyset_cardbody = {__html: currentChamp.blurb}
-        return <Card iconurl={champSpriteBaseUrl+currentChamp.image.full} iconalt={currentChamp.name} header={jsx_cardheader} body={jsx_dangerouslyset_cardbody}/>
+        return <Card key={key} iconurl={champSpriteBaseUrl+currentChamp.image.full} iconalt={currentChamp.name} header={jsx_cardheader} body={jsx_dangerouslyset_cardbody}/>
       }
       return (null)
     })

@@ -36,6 +36,13 @@ h1, h2, h3, h4 {
   overflow: hidden;
 }
 
+.filters {
+  display: grid;
+  align-items: center;
+  font-size: .75rem;
+  grid-template-columns: repeat(5, 1fr);
+}
+
 .content {
   margin: 60px 5px 45px 5px;
 }

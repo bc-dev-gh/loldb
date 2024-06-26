@@ -43,7 +43,7 @@ export default function Items() {
 
 function manageFilters (filterHandler) {
   return Object.entries(ItemFilters).map( ([category, filters]) =>
-    <FilterCategory title={category} filters={filters} filterHandler={filterHandler}/>
+    <FilterCategory key={category} title={category} filters={filters} filterHandler={filterHandler}/>
   )
 }
 
@@ -74,7 +74,7 @@ function manageCards(filters, searchString) {
           <p className='card-subtitle'>{currentItem.gold.total} G</p>
         </>
         let jsx_dangerouslyset_cardbody = {__html: currentItem.description}
-        return <Card iconurl={itemSpriteBaseUrl+currentItem.image.full} iconalt={currentItem.name} header={jsx_cardheader} body={jsx_dangerouslyset_cardbody}/>
+        return <Card key={itemId} iconurl={itemSpriteBaseUrl+currentItem.image.full} iconalt={currentItem.name} header={jsx_cardheader} body={jsx_dangerouslyset_cardbody}/>
       }
     }
     return false

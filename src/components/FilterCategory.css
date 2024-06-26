@@ -1,11 +1,27 @@
 .filter-category {
-  display: flex;
-  flex-direction: column;
   margin: 5px 5px 0px 5px;
   border-radius: 5px;
   border-color: black ;
   background-color:cadetblue;
   border-style: solid;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-row > label {
+  flex: 1;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-fullwidth {
+  grid-column: 1 / 6;
 }
 
 .filter-category > h2 {
@@ -14,13 +30,6 @@
   background-color: darkslategray;
   color: tan;
   overflow: hidden;
-}
-
-.filters {
-  display: grid;
-  align-items: center;
-  font-size: .75rem;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
 .filterlabel {
