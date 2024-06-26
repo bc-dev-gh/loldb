@@ -33,6 +33,9 @@
 }
 
 .filterlabel {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
   display: block;
   margin: 2px 5px 2px 5px;
   padding: 2px;
@@ -40,4 +43,28 @@
   border-radius: 5px;
   background-color:black;
   color: white;
+  border-color: black;
+  border-style: solid;
+  border-width: 2px;
+}
+
+.filterlabel-selected {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  display: block;
+  margin: 2px 5px 2px 5px;
+  padding: 2px;
+  text-align: center;
+  border-radius: 5px;
+  background-color: tan;
+  color: black;
+  border-color: black;
+  border-style: solid;
+  border-width: 2px;
+}
+
+.filtercb {
+  position: absolute;
+  visibility: hidden;
 }

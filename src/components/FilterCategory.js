@@ -9,15 +9,17 @@ export default function FilterCategory(props) {
     <h2>{props.title}</h2>
       <div className={flexDirection}>
       {
-        props.filters.map( filter =>
-          <label className='filterlabel' key={filter}> 
+        Object.entries(props.filters).map( ([filter, isChecked]) => { 
+          let currentState = isChecked
+          return <label className={currentState? 'filterlabel-selected' : 'filterlabel'} key={filter}> 
             {filter}
             <input className='filtercb' 
               type='checkbox' 
-              checked={props.filters[filter]} 
+              checked={isChecked} 
               id={filter} 
               onClick={props.filterHandler}/>
-          </label>)
+          </label>
+        })
       }
       </div>
   </div>

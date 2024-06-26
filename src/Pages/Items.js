@@ -22,7 +22,7 @@ export default function Items() {
   const [filterList, setFilterList] = React.useState(allTags)
   function handleFilterCBChanged(event) { setFilterList(prevFilterList => ({...prevFilterList, [event.target.id]: event.target.checked})) }
 
-  let jsx_filterCheckboxes = manageFilters(handleFilterCBChanged)
+  let jsx_filterCheckboxes = manageFilters(filterList, handleFilterCBChanged)
   let jsx_itemCards = manageCards(filterList, searchString)
 
   return (
@@ -41,10 +41,14 @@ export default function Items() {
   )
 } 
 
-function manageFilters (filterHandler) {
-  return Object.entries(ItemFilters).map( ([category, filters]) =>
-    <FilterCategory key={category} title={category} filters={filters} filterHandler={filterHandler}/>
-  )
+function manageFilters (tagDict, cbHandler) {
+  return Object.entries(ItemFilters).map( ([category, filters]) => {
+    let filtergroup ={}
+    for (let filter in filters) {
+      filtergroup[filter] = tagDict[filter]
+    }
+    return <FilterCategory key={category} title={category} filters={filtergroup} filterHandler={cbHandler}/>
+  })
 }
 
 function manageCards(filters, searchString) {

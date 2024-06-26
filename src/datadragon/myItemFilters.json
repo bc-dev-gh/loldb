@@ -1,42 +1,42 @@
 {
-  "Attack":[
-    "Damage",
-    "AttackSpeed",
-    "ArmorPenetration",
-    "CriticalStrike",
-    "OnHit",
-    "LifeSteal"
-  ],
-  "Ability":[
-    "SpellDamage",
-    "AbilityHaste",
-    "MagicPenetration",
-    "Mana",
-    "ManaRegen",
-    "SpellVamp"
-  ],
-  "Defense":[
-    "Health",
-    "HealthRegen",
-    "Armor",
-    "MagicResist",
-    "SpellBlock",
-    "Tenacity"
-  ],
-  "Support":[
-    "GoldPer",
-    "Trinket",
-    "Vision",
-    "Stealth",
-    "Aura",
-    "Active"
-  ],
-  "Meta":[
-    "Boots",
-    "NonbootsMovement",
-    "Slow",
-    "Lane",
-    "Jungle",
-    "Consumable"
-  ]
+  "Attack":{
+    "Damage": "false",
+    "AttackSpeed": "false",
+    "ArmorPenetration": "false",
+    "CriticalStrike": "false",
+    "OnHit": "false",
+    "LifeSteal": "false"
+  },
+  "Ability":{
+    "SpellDamage": "false",
+    "AbilityHaste": "false",
+    "MagicPenetration": "false",
+    "Mana": "false",
+    "ManaRegen": "false",
+    "SpellVamp": "false"
+  },
+  "Defense":{
+    "Health": "false",
+    "HealthRegen": "false",
+    "Armor": "false",
+    "MagicResist": "false",
+    "SpellBlock": "false",
+    "Tenacity": "false"
+  },
+  "Support":{
+    "GoldPer": "false",
+    "Trinket": "false",
+    "Vision": "false",
+    "Stealth": "false",
+    "Aura": "false",
+    "Active": "false"
+  },
+  "Meta":{
+    "Boots": "false",
+    "NonbootsMovement": "false",
+    "Slow": "false",
+    "Lane": "false",
+    "Jungle": "false",
+    "Consumable": "false"
+  }
 }

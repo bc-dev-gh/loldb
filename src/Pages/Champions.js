@@ -39,8 +39,7 @@ export default function Champions() {
   )
 
   function manageFilters (tagDict, filterHandler) {
-    let tagList = Object.keys(tagDict)
-    return <FilterCategory title='Tags' horizontal={true} filters={tagList} filterHandler={filterHandler}/>
+    return <FilterCategory title='Tags' horizontal={true} filters={tagDict} filterHandler={filterHandler}/>
   }
 
   function manageCards (filters, searchString) {
