@@ -4,10 +4,7 @@ export default function Home() {
   return (
     <div>
       <h1>Home</h1>
-      <ul>
-        <li>item1</li>
-        <li>item2</li>
-      </ul>
+      <p>This is a page developed in React and utilizes League of Legends data made available by Riot Game's <a href='https://developer.riotgames.com/docs/lol'>DataDragon Developer Portal</a></p>
     </div>
   )
 }
