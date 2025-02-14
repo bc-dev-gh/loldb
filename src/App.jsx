@@ -4,8 +4,8 @@ import {createHashRouter, RouterProvider} from 'react-router-dom';
 import Home from './Pages/Home.js';
 import Champions from './Pages/Champions.js';
 import Items from './Pages/Items.js';
-import MainNav from './components/MainNav.js'
-import Footer from './components/Footer.js'
+import MainNav from './components/MainNav.jsx'
+import Footer from './components/Footer.jsx'
 
 const router = createHashRouter([
   {path:"/", element: <Home/>},

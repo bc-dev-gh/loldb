@@ -29,7 +29,7 @@ export default function Items() {
     <>
       <h1>Items: {ItemDB.version}</h1>
       <label className='searchlabel'>
-        <h3>Item Name Search <input className='search' type='text' onInput={handleSearchInput}></input></h3> 
+        <h3>Item Name Search <input className='search' type='text' onChange={handleSearchInput} value={searchString}></input></h3> 
       </label>
       <div className='filters' >
         {jsx_filterCheckboxes}
@@ -43,7 +43,7 @@ export default function Items() {
 
 function manageFilters (tagDict, cbHandler) {
   return Object.entries(ItemFilters).map( ([category, filters]) => {
-    let filtergroup ={}
+    let filtergroup = {}
     for (let filter in filters) {
       filtergroup[filter] = tagDict[filter]
     }

@@ -27,7 +27,7 @@ export default function Champions() {
     <>
       <h1>Champions: {ChampDB.version}</h1>
       <label className='searchlabel'>
-        <h3>Champion Name Search <input className='search' type='text' onInput={handleSearchInput}></input></h3> 
+        <h3>Champion Name Search <input className='search' type='text' onChange={handleSearchInput} value={searchString}></input></h3> 
       </label>
       <div className='filters' >
         {jsx_filterCheckboxes}

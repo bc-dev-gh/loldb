@@ -16,6 +16,7 @@
 }
 
 .card-header {
+  font-size: 1rem;
   background-color: darkslategray;
   color: tan;
   overflow: hidden;

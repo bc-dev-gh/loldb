@@ -16,8 +16,9 @@ export default function FilterCategory(props) {
             <input className='filtercb' 
               type='checkbox' 
               checked={isChecked} 
-              id={filter} 
-              onClick={props.filterHandler}/>
+              id={filter}
+              name={filter}
+              onChange={props.filterHandler}/>
           </label>
         })
       }
