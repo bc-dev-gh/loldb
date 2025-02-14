@@ -73,12 +73,12 @@ function manageCards(filters, searchString) {
       if ((searchString === '' || currentItem.name.toLowerCase().includes(searchString.toLowerCase()) || 
       currentItem.colloq.toLowerCase().split(';').includes(searchString.toLowerCase())) && 
       (noFiltersSelected || matchedTags === selectedFilters.length)) {
-        let jsx_cardheader = <>
-          <h4 className='card-title'>{currentItem.name}</h4>
-          <p className='card-subtitle'>{currentItem.gold.total} G</p>
-        </>
-        let jsx_dangerouslyset_cardbody = {__html: currentItem.description}
-        return <Card key={itemId} iconurl={itemSpriteBaseUrl+currentItem.image.full} iconalt={currentItem.name} header={jsx_cardheader} body={jsx_dangerouslyset_cardbody}/>
+        return <Card key={itemId}
+        title={currentItem.name}
+        subtitle={currentItem.gold.total+" G"}
+        iconurl={itemSpriteBaseUrl+currentItem.image.full}
+        iconalt={currentItem.name}
+        body={currentItem.description}/>
       }
     }
     return false

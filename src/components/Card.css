@@ -16,18 +16,19 @@
 }
 
 .card-header {
-  font-size: 1rem;
   background-color: darkslategray;
   color: tan;
   overflow: hidden;
 }
 
-.card-title {
+.card-header > h4 {
   font-size: 1rem;
   font-weight: bold;
 }
 
-.card-subtitle {
+.card-header > h5 {
+  font-size: .9rem;
+  font-weight: normal;
   margin: 0px;
 }
 

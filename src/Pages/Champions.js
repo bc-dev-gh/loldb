@@ -59,12 +59,12 @@ export default function Champions() {
       //conditional rendering: search string must be empty or match champion name
       if ((searchString === '' || currentChamp.name.toLowerCase().includes(searchString.toLowerCase())) && 
       (noFiltersSelected || matchedTags === selectedFilters.length)) {
-        let jsx_cardheader = <>
-          <h4 className='card-title'>{currentChamp.name}</h4>
-          {currentChamp.tags.map((tag) => (<p key={tag} className='card-subtitle'>{tag}</p>)) }
-        </>
-        let jsx_dangerouslyset_cardbody = {__html: currentChamp.blurb}
-        return <Card key={key} iconurl={champSpriteBaseUrl+currentChamp.image.full} iconalt={currentChamp.name} header={jsx_cardheader} body={jsx_dangerouslyset_cardbody}/>
+        return <Card key={key}
+        title={currentChamp.name}
+        subtitle={currentChamp.tags.join("/")}
+        iconurl={champSpriteBaseUrl+currentChamp.image.full}
+        iconalt={currentChamp.name}
+        body={currentChamp.blurb}/>
       }
       return (null)
     })

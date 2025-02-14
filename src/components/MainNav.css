@@ -22,6 +22,7 @@
 }
 
 .nav-list {
+  font-weight: bold;
   margin: 5px;
   display: flex;
   list-style: none;

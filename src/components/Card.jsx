@@ -7,11 +7,12 @@ export default function Card(props) {
   const body = {__html: props.body}
   return ( 
     <div className='card'>
-      <h1 className='card-header'>
+      <div className='card-header'>
           <img className='card-icon' src={props.iconurl} alt={props.iconalt} />
-          {props.header}
-      </h1>
-      <div className='card-description' dangerouslySetInnerHTML={props.body}/>
+          <h4>{props.title}</h4>
+          <h5>{props.subtitle}</h5>
+      </div>
+      <div className='card-description' dangerouslySetInnerHTML={body}/>
     </div>
   )
 }
