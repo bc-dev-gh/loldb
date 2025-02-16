@@ -21,24 +21,26 @@
   overflow: hidden;
 }
 
+.card-icon {
+  padding: 5px;
+  width: 50px;
+  height: 50px;
+  float: left;
+}
+
 .card-header > h4 {
+  margin: 5px 5px 0px 5px;
   font-size: 1rem;
   font-weight: bold;
 }
 
 .card-header > h5 {
+  margin: 0px 5px 5px 5px;
   font-size: .9rem;
   font-weight: normal;
-  margin: 0px;
 }
 
 .card-description {
+  margin: 0px;
   padding: 5px;
-}
-
-.card-icon {
-  margin: 5px;
-  width: 50px;
-  height: 50px;
-  float: left;
 }

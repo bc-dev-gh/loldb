@@ -8,11 +8,11 @@ export default function Card(props) {
   return ( 
     <div className='card'>
       <div className='card-header'>
-          <img className='card-icon' src={props.iconurl} alt={props.iconalt} />
+          {props.iconurl && <img className='card-icon' src={props.iconurl} alt={props.iconalt} />}
           <h4>{props.title}</h4>
           <h5>{props.subtitle}</h5>
       </div>
-      <div className='card-description' dangerouslySetInnerHTML={body}/>
+      <p className='card-description' dangerouslySetInnerHTML={body}/>
     </div>
   )
 }
