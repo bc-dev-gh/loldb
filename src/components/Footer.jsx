@@ -4,10 +4,13 @@ import './Footer.css';
 
 export default function Footer() {
   return (
-    <footer>
-      <ul className='footer-list'>
-        <li>React Version: {React.version}</li>
-      </ul>
-    </footer>
+    <>
+      <div className='footer-spacer'></div>
+      <footer>
+        <ul className='footer-list'>
+          <li>React Version: {React.version}</li>
+        </ul>
+      </footer>
+    </>
   )
 }
