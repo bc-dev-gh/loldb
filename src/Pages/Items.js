@@ -76,6 +76,7 @@ function manageCards(filters, searchString) {
         return <Card key={itemId}
         title={currentItem.name}
         subtitle={currentItem.gold.total+" G"}
+        linkurl='/loldb/champions'
         iconurl={itemSpriteBaseUrl+currentItem.image.full}
         iconalt={currentItem.name}
         body={currentItem.description}/>

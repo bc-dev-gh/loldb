@@ -62,6 +62,7 @@ export default function Champions() {
         return <Card key={key}
         title={currentChamp.name}
         subtitle={currentChamp.tags.join("/")}
+        linkurl='/loldb/items'
         iconurl={champSpriteBaseUrl+currentChamp.image.full}
         iconalt={currentChamp.name}
         body={currentChamp.blurb}/>
