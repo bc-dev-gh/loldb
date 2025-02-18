@@ -79,7 +79,8 @@ function manageCards(filters, searchString) {
         linkurl='/loldb/champions'
         iconurl={itemSpriteBaseUrl+currentItem.image.full}
         iconalt={currentItem.name}
-        body={currentItem.description}/>
+        body={currentItem.description}
+        hoverable='true'/>
       }
     }
     return false

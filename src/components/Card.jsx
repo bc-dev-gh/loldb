@@ -6,7 +6,7 @@ import { Outlet, Link } from 'react-router-dom';
 export default function Card(props) {
   // Note: we pull some html  body from the LoL Datadragon data. Not great security but we trust Riot
   const body = {__html: props.body}
-  let content = 
+  let content =
     <>
       <div className='card-header'>
         {props.iconurl && <img className='card-icon' src={props.iconurl} alt={props.iconalt} />}
@@ -17,7 +17,7 @@ export default function Card(props) {
     </>
   return ( 
     <>
-      <div className='card'>
+      <div className={props.hoverable ? 'card card-hoverable' : 'card'}>
         {props.linkurl ? <Link to={props.linkurl}>{content}</Link> : content}
       </div>
       <Outlet />
