@@ -85,7 +85,9 @@ export default function ItemDetail() {
     try{
       return(
         <>
-        {thisItem.into.map((currentItemId) => {
+        { thisItem.into &&
+        thisItem.into.length > 0 &&
+        thisItem.into.map((currentItemId) => {
           const currentItem = itemDB.data[currentItemId]
           return  currentItem.maps['11'] && <Card key={`into_${currentItemId}`}
             title={currentItem.name}
