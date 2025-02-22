@@ -8,7 +8,7 @@
   word-wrap:break-word;
 }
 
-.card:hover {
+.card-hoverable:hover {
   border-color: goldenrod;
   transition: transform 0.25s;
   transform: scale(1.1);

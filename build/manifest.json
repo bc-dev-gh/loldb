@@ -1,6 +1,7 @@
 {
-  "short_name": "LOLDB",
-  "name": "League of Legends Info Database",
+  {
+    "short_name": "LOLDB",
+    "name": "League of Legends Info Database",
   "icons": [
     {
       "src": "favicon.ico",
