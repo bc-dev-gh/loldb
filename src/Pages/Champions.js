@@ -14,11 +14,11 @@ export default function Champions() {
       return res.json();
     }).then((data) => {
       setChampDB(data)
-      console.log('setting champdb')
       for (let champId in data.data) {
         for (let tag of data.data[champId].tags) {
-          if (!filterList.hasOwnProperty(tag))
+          if (!filterList.hasOwnProperty(tag)) {
             setFilterList(prevFilterList => ({...prevFilterList, [tag]: false}))
+          }
         }
       }
     })

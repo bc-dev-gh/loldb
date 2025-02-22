@@ -3,21 +3,20 @@ import Globals from "../globals.js"
 import Card from "../components/Card.jsx"
 import { useParams } from "react-router-dom"
 
-
 export default function ChampionDetail() {
-  const {champName} = useParams();
+  const {champId} = useParams()
   const [champData, setChampData] = React.useState({})
   const [lolVersion, setLolVersion] = React.useState(0)
 
   React.useEffect(() => {
-    const endpoint = Globals.ddDataUrl('champion',champName)
+    const endpoint = Globals.ddDataUrl('champion',champId)
     fetch(endpoint).then((res) => {
-      return res.json();
+      return res.json()
     }).then((data) => {
-      setChampData(data.data[champName])
+      setChampData(data.data[champId])
       setLolVersion(data.version)
     })
-  }, [champName])
+  }, [champId])
 
   try{
     return(
@@ -57,11 +56,11 @@ export default function ChampionDetail() {
           hoverable='true'/>
         {champData.spells.map((skill) => {
         return <Card key={skill.id}
-        title={skill.name}
-        iconurl={Globals.ddImgUrl('spell', skill.image.full)}
-        iconalt={skill.id}
-        body={skill.description}
-        hoverable='true'/>
+          title={skill.name}
+          iconurl={Globals.ddImgUrl('spell', skill.image.full)}
+          iconalt={skill.id}
+          body={skill.description}
+          hoverable='true'/>
         })}
       </>
     )
