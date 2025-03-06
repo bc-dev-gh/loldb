@@ -22,17 +22,23 @@ export default function ChampionDetail() {
     return(
       <>
         <h1>{champData.name}: {lolVersion}</h1>
-        <Card 
-        title={champData.name}
-        subtitle={champData.title}
-        iconurl={Globals.ddImgUrl('champion', champData.image.full)}
-        iconalt={champData.name}
-        body={champData.lore}/>
+        <label className='searchlabel'>
+          <h3>About</h3> 
+        </label>
+        <div className='container'>
+          {manageAbout()}
+        </div>
         <label className='searchlabel'>
           <h3>Skills</h3> 
         </label>
         <div className='container'>
           {manageSkills()}
+        </div>
+        <label className='searchlabel'>
+          <h3>Skins</h3> 
+        </label>
+        <div className='container'>
+          {manageSkins()}
         </div>
       </>
     )
@@ -45,6 +51,29 @@ export default function ChampionDetail() {
     return <></>
   }
 
+  function manageAbout() {
+    return (
+      <>
+        <Card 
+        title={champData.name}
+        subtitle={champData.title}
+        iconurl={Globals.ddImgUrl('champion', champData.image.full)}
+        iconalt={champData.name}
+        body={champData.lore}/>
+        <Card 
+        title={`Playing with ${champData.name}`}
+        iconurl={Globals.ddImgUrl('champion', champData.image.full)}
+        iconalt={champData.name}
+        body={champData.allytips}/>
+        <Card 
+        title={`Playing against ${champData.name}`}
+        iconurl={Globals.ddImgUrl('champion', champData.image.full)}
+        iconalt={champData.name}
+        body={champData.enemytips}/>
+      </>
+    )
+  }
+
   function manageSkills() {
     return (     
       <>
@@ -55,15 +84,29 @@ export default function ChampionDetail() {
           body={champData.passive.description}
           hoverable='true'/>
         {champData.spells.map((skill) => {
-        return <Card key={skill.id}
+          return <Card key={skill.id}
           title={skill.name}
           iconurl={Globals.ddImgUrl('spell', skill.image.full)}
           iconalt={skill.id}
           body={skill.description}
           hoverable='true'/>
-        })}
+          }
+        )}
       </>
     )
+  }
+
+  function manageSkins() {
+    return champData.skins.map((skin) => {
+      const skinImgSrc = Globals.ddImgUrl('champion/loading',`${champData.id}_${skin.num}.jpg`)
+      return <Card key={skin.id}
+      title={skin.name === 'default' ? champData.name : skin.name}
+      iconurl={Globals.ddImgUrl('champion', champData.image.full)}
+      iconalt={champData.name}
+      body={`<img src=${skinImgSrc} alt=${skin.name} />`}
+      alt={`${champData.id}_${skin.num}`}
+      hoverable='true'/>
+    })
   }
 }
 
